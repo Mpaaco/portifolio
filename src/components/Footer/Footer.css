@@ -1,0 +1,66 @@
+/* =========================================
+   Footer — Rodapé da página
+   ========================================= */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 16px;
+}
+
+/* Links e textos */
+.footer-contact,
+.footer-subtitle,
+.footer-timestamp {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-weight: var(--font-weight-regular, 400);
+  font-size: var(--font-size-nav, 21px);
+  color: var(--color-text, #000000);
+  line-height: normal;
+  margin: 0;
+}
+
+.footer-contact {
+  text-decoration: none;
+}
+
+/* ── Tablet ─────────────────────────────── */
+@media (max-width: 1023px) {
+  .footer-contact,
+  .footer-subtitle,
+  .footer-timestamp {
+    font-size: 16px;
+  }
+}
+
+/* ── Mobile ─────────────────────────────── */
+@media (max-width: 767px) {
+  .footer {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+    padding-top: 12px;
+  }
+
+  .footer-contact,
+  .footer-subtitle,
+  .footer-timestamp {
+    font-size: 13px;
+  }
+
+  .footer-subtitle {
+    flex-basis: 100%;
+    order: 2;
+  }
+
+  .footer-contact {
+    order: 1;
+  }
+
+  .footer-timestamp {
+    order: 3;
+    margin-left: auto;
+  }
+}

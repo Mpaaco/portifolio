@@ -1,0 +1,48 @@
+/* =========================================
+   MainContent — Área central da página
+   ========================================= */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0; /* Necessário para flex-child respeitar shrink */
+  padding: 20px 0;
+}
+
+/* Retângulo escuro que contém o carrossel */
+.dark-rectangle {
+  background-color: var(--color-dark-rect, #080808);
+  overflow: hidden;
+  position: relative;
+
+  /*
+   * Estratégia responsive:
+   * - width: clamp garante no mínimo 300px, cresce até 70vw, máximo 1000px
+   * - aspect-ratio mantém a proporção original (1000×592)
+   * - max-height impede overflow vertical (quando viewport for muito baixa,
+   *   o browser reduz width automaticamente para manter o aspect-ratio)
+   */
+  width: clamp(300px, 70vw, 1000px);
+  aspect-ratio: 1000 / 592;
+  max-height: calc(100vh - 180px);
+}
+
+/* ── Tablet ─────────────────────────────── */
+@media (max-width: 1023px) {
+  .dark-rectangle {
+    width: clamp(280px, 85vw, 900px);
+  }
+}
+
+/* ── Mobile ─────────────────────────────── */
+@media (max-width: 767px) {
+  .main-content {
+    padding: 16px 0;
+  }
+
+  .dark-rectangle {
+    width: clamp(260px, 92vw, 600px);
+  }
+}

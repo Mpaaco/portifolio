@@ -1,0 +1,101 @@
+/* =========================================
+   Carousel
+   ========================================= */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Imagens ─────────────────────────────── */
+
+.carousel-image {
+  position: absolute;
+  /*
+   * Tamanho de design: 819×485px dentro do container 1000×592px
+   * Convertido para % para manter responsividade quando o dark-rectangle escala.
+   *   left  = 90 ÷ 1000 = 9%
+   *   top   = 53 ÷ 592  ≈ 8.95%
+   *   width = 819 ÷ 1000 = 81.9%
+   *   height= 485 ÷ 592  ≈ 81.93%
+   */
+  left: 9%;
+  top: 8.95%;
+  width: 81.9%;
+  height: 81.93%;
+  object-fit: contain;
+  object-position: center;
+  box-shadow: var(--carousel-image-shadow, 0px 4px 4px 0px rgba(0, 0, 0, 0.25));
+  opacity: 0;
+  transition: var(--transition-fade, opacity 0.5s ease-in-out),
+              var(--transition-filter, filter 0.4s ease);
+  /*
+   * Impede que imagens invisíveis (opacity: 0) interceptem eventos de mouse.
+   * Sem isso, a última imagem no DOM fica sempre no topo da pilha e bloqueia
+   * o hover das demais, mesmo estando transparente.
+   */
+  pointer-events: none;
+}
+
+.carousel-image.active {
+  opacity: 1;
+  /* Apenas a imagem visível responde a eventos de mouse (hover, click, etc.) */
+  pointer-events: auto;
+}
+
+
+/* ── Desktop (≥1024px): P&B com hover colorido ─── */
+@media (min-width: 1024px) {
+  .carousel-image {
+    filter: grayscale(100%);
+  }
+
+  .carousel-image:hover {
+    filter: grayscale(0%);
+  }
+}
+
+/* ── Tablet e Mobile (<1024px): sempre colorido ─── */
+@media (max-width: 1023px) {
+  .carousel-image {
+    filter: none;
+  }
+}
+
+/* ── Indicadores ──────────────────────────── */
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--carousel-indicator-gap, 10px);
+  z-index: 10;
+}
+
+.carousel-indicator {
+  width: var(--carousel-indicator-size, 12px);
+  height: var(--carousel-indicator-size, 12px);
+  border-radius: 50%;
+  border: 2px solid var(--color-indicator-border, #ffffff);
+  background-color: transparent;
+  cursor: pointer;
+  transition: var(--transition-indicator, background-color 0.3s ease);
+  padding: 0;
+}
+
+.carousel-indicator:hover {
+  background-color: var(--color-indicator-hover, rgba(255, 255, 255, 0.5));
+}
+
+.carousel-indicator.active {
+  background-color: var(--color-indicator-active, #ffffff);
+}

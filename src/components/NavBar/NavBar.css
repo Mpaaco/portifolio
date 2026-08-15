@@ -1,0 +1,60 @@
+/* =========================================
+   NavBar — Header da página
+   ========================================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Nome / Logo */
+.navbar-logo {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-weight: var(--font-weight-regular, 400);
+  font-size: var(--font-size-nav, 21px);
+  color: var(--color-text, #000000);
+  line-height: normal;
+}
+
+/* Grupo de ações (social + menu) */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Ícones */
+.navbar-social {
+  width: 61px;
+  height: 21px;
+}
+
+.navbar-menu {
+  width: 49px;
+  height: 7px;
+}
+
+/* ── Tablet ─────────────────────────────── */
+@media (max-width: 1023px) {
+  .navbar-logo {
+    font-size: 18px;
+  }
+}
+
+/* ── Mobile ─────────────────────────────── */
+@media (max-width: 767px) {
+  .navbar-logo {
+    font-size: 16px;
+  }
+
+  .navbar-social {
+    width: 46px;
+    height: 16px;
+  }
+
+  .navbar-menu {
+    width: 36px;
+  }
+}
