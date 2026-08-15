@@ -62,7 +62,8 @@
 
   .footer-contact,
   .footer-subtitle,
-  .footer-timestamp {
+  .footer-timestamp,
+  .footer-quote {
     font-size: 13px;
   }
 
@@ -79,6 +80,26 @@
     order: 3;
     margin-left: auto;
   }
+
+  .footer-quote {
+    flex-basis: 100%;
+    order: 2;
+    text-align: center;
+    margin: 8px 0;
+  }
+
+  .footer--about .footer-contact {
+    order: 1;
+  }
+
+  .footer--about .footer-quote {
+    order: 2;
+  }
+
+  .footer--about .footer-timestamp {
+    order: 3;
+    margin-left: auto;
+  }
 }
 
 /* ── Freelance variant ───────────────────── */
@@ -89,5 +110,28 @@
 .footer-subtitle--right {
   text-align: right;
   margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.footer-subtitle--right:hover {
+  opacity: 0.65;
+}
+
+/* ── About variant ──────────────────────── */
+.footer--about {
+  justify-content: space-between;
+}
+
+.footer-quote {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-weight: var(--font-weight-regular, 400);
+  font-size: var(--font-size-nav, 21px);
+  color: var(--color-text, #000000);
+  line-height: normal;
+  margin: 0;
+  text-align: center;
+  flex: 1;
 }
 

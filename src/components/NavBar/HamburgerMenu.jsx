@@ -5,7 +5,7 @@ import ContactModal from '../ContactModal/ContactModal'
 
 const navLinks = [
   { label: 'HOME', href: '/', isRoute: true },
-  { label: 'SOBRE MIM', href: '#sobre' },
+  { label: 'SOBRE MIM', href: '/about', isRoute: true },
   { label: 'FREELANCES', href: '/freelance', isRoute: true },
   { label: 'CONTATO', href: '#contato', isContact: true },
 ]
