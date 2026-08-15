@@ -5,10 +5,21 @@
 .main-content {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 0; /* Necessário para flex-child respeitar shrink */
-  padding: 20px 0;
+  min-height: 0;
+  padding: 20px;
+  gap: 24px;
+}
+
+/* Wrapper que agrupa o carrossel + CTA row */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  gap: 12px;
 }
 
 /* Retângulo escuro que contém o carrossel */
@@ -16,33 +27,62 @@
   background-color: var(--color-dark-rect, #080808);
   overflow: hidden;
   position: relative;
-
-  /*
-   * Estratégia responsive:
-   * - width: clamp garante no mínimo 300px, cresce até 70vw, máximo 1000px
-   * - aspect-ratio mantém a proporção original (1000×592)
-   * - max-height impede overflow vertical (quando viewport for muito baixa,
-   *   o browser reduz width automaticamente para manter o aspect-ratio)
-   */
-  width: clamp(300px, 70vw, 1000px);
+  width: 100%;
   aspect-ratio: 1000 / 592;
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 220px);
+}
+
+/* Linha do CTA abaixo do carrossel */
+.main-cta-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text, #000000);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.main-cta-link:hover {
+  border-bottom-color: var(--color-text, #000000);
+  opacity: 0.75;
+}
+
+.main-cta-link svg {
+  transition: transform 0.2s ease;
+}
+
+.main-cta-link:hover svg {
+  transform: translate(2px, -2px);
 }
 
 /* ── Tablet ─────────────────────────────── */
 @media (max-width: 1023px) {
-  .dark-rectangle {
-    width: clamp(280px, 85vw, 900px);
+  .main-wrapper {
+    max-width: 900px;
   }
 }
 
 /* ── Mobile ─────────────────────────────── */
 @media (max-width: 767px) {
   .main-content {
-    padding: 16px 0;
+    padding: 16px;
+  }
+
+  .main-wrapper {
+    max-width: 600px;
   }
 
   .dark-rectangle {
-    width: clamp(260px, 92vw, 600px);
+    max-height: calc(100vh - 180px);
   }
 }

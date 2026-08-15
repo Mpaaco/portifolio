@@ -1,0 +1,209 @@
+/* =========================================
+   ContactModal — Card de contato centralizado
+   ========================================= */
+
+/* ── Overlay de fundo ────────────────────── */
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.contact-overlay--visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Card modal ──────────────────────────── */
+.contact-modal {
+  position: fixed;
+  /* Centralizado verticalmente e horizontalmente */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
+  z-index: 1101;
+
+  /* Dimensões do Figma: ~1053×278 — responsivo com max-width */
+  width: min(1053px, calc(100vw - 48px));
+
+  /* Visual: fundo escuro acinzentado + glassmorphism + borda sutil */
+  background: rgba(70, 70, 70, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 40px;
+
+  padding: 36px 44px 40px;
+
+  /* Estado inicial invisível */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease,
+              transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-modal--open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ── Linha de topo ───────────────────────── */
+.contact-modal__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.contact-modal__title {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+}
+
+/* Botão fechar — traço branco */
+.contact-modal__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.contact-modal__close:hover {
+  opacity: 0.6;
+}
+
+.contact-modal__close:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.contact-modal__close-line {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: #fff;
+  border-radius: 999px;
+}
+
+/* ── Corpo: duas colunas ─────────────────── */
+.contact-modal__body {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-col--left {
+  flex: 1;
+  padding-right: 36px;
+}
+
+.contact-col--right {
+  flex: 1;
+  padding-left: 36px;
+  gap: 10px;
+}
+
+/* Divisor vertical */
+.contact-divider {
+  width: 1px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
+}
+
+/* ── Coluna esquerda — identidade ─────────── */
+.contact-name {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.contact-role {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* ── Coluna direita — dados de contato ────── */
+.contact-info-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.contact-info-item:hover {
+  opacity: 0.72;
+}
+
+.contact-info-label {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+}
+
+.contact-info-value {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ── Responsivo ──────────────────────────── */
+@media (max-width: 767px) {
+  .contact-modal {
+    padding: 28px 24px 32px;
+    border-radius: 28px;
+  }
+
+  .contact-modal__body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .contact-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .contact-col--left {
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .contact-col--right {
+    padding-left: 0;
+    width: 100%;
+  }
+}

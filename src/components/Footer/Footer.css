@@ -23,7 +23,23 @@
 }
 
 .footer-contact {
+  /* Reset do <button> */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-contact:hover {
+  opacity: 0.65;
+}
+
+.footer-contact:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* ── Tablet ─────────────────────────────── */
@@ -64,3 +80,14 @@
     margin-left: auto;
   }
 }
+
+/* ── Freelance variant ───────────────────── */
+.footer--freelance {
+  justify-content: space-between;
+}
+
+.footer-subtitle--right {
+  text-align: right;
+  margin: 0;
+}
+

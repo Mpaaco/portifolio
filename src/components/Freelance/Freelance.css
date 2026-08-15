@@ -1,0 +1,481 @@
+/* =========================================
+   Freelance Page — Portfolio Projects
+   ========================================= */
+
+.freelance-page {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Header ──────────────────────────────── */
+.freelance-header {
+  display: flex;
+  align-items: center;
+  padding: 0 33px;
+  margin-top: 40px;
+  height: 80px;
+  gap: 24px;
+}
+
+.header-left {
+  width: 280px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  overflow: hidden;
+}
+
+/* Project button / link */
+.project-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #F4F4F5;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #000000;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.project-button:hover {
+  background-color: #e2e2e3;
+  transform: translateY(-1px);
+}
+
+/* Prev / Next arrows */
+.nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #D5D5D5;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  color: #000;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.nav-arrow:hover {
+  background-color: #F4F4F5;
+  border-color: #aaa;
+  transform: scale(1.05);
+}
+
+.nav-arrow:active {
+  transform: scale(0.95);
+}
+
+/* Counter */
+.project-counter {
+  font-size: 15px;
+  color: #717174;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.counter-current {
+  color: #18181B;
+  font-weight: 500;
+}
+
+.counter-total {
+  color: #aaa;
+}
+
+/* Project title */
+.project-title {
+  font-size: 40px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ── Transitions ─────────────────────────── */
+.project-title--in,
+.content--in {
+  animation: fadeSlideIn 0.25s ease forwards;
+}
+
+.project-title--out,
+.content--out {
+  animation: fadeSlideOut 0.2s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* ── Dividers ────────────────────────────── */
+.divider {
+  height: 1px;
+  background-color: #D5D5D5;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.divider-vertical {
+  width: 1px;
+  background-color: #D5D5D5;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+/* ── Main Content ────────────────────────── */
+.freelance-content {
+  display: flex;
+  padding: 0 33px;
+  gap: 0;
+}
+
+.content-left {
+  width: 420px;
+  padding: 28px 32px 28px 0;
+  flex-shrink: 0;
+}
+
+.content-right {
+  flex: 1;
+  padding: 28px 0 28px 32px;
+  min-height: 0;
+}
+
+/* Info rows */
+.info-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+  align-items: start;
+}
+
+.info-row--block {
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 12px;
+  color: #A1A1AA;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 2px;
+}
+
+.info-value {
+  font-size: 14px;
+  color: #18181B;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Role badge */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.role-badge--frontend {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+}
+
+.role-badge--fullstack {
+  background-color: #F0FDF4;
+  color: #15803D;
+}
+
+/* ── Main Image ──────────────────────────── */
+.main-image-container {
+  position: relative;
+  background-color: #ECECEC;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.4s ease;
+}
+
+.main-image-container:hover .main-image {
+  transform: scale(1.025);
+}
+
+/* Image overlay */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.main-image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.overlay-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 22px;
+  border-radius: 24px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.overlay-link:hover {
+  background-color: #222;
+  transform: translateY(-2px);
+}
+
+/* ── Other Projects ──────────────────────── */
+.other-projects {
+  padding: 48px 33px 40px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 20px;
+}
+
+.title-underline {
+  width: 48px;
+  height: 4px;
+  background-color: #000000;
+  margin-bottom: 36px;
+  border-radius: 2px;
+}
+
+.projects-grid {
+  display: flex;
+  gap: 80px;
+}
+
+/* Project card */
+.project-card {
+  position: relative;
+  width: 220px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding-bottom: 8px;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-card:hover .card-image img {
+  transform: scale(1.04);
+}
+
+/* Active card bar */
+.card-active-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: transparent;
+  border-radius: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.project-card--active .card-active-bar {
+  background-color: #000000;
+}
+
+.card-image {
+  background-color: #ECECEC;
+  height: 120px;
+  margin-bottom: 14px;
+  padding: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: transform 0.35s ease;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-name {
+  font-size: 14px;
+  color: #18181B;
+  font-weight: 500;
+}
+
+.card-type {
+  font-size: 12px;
+  color: #717174;
+  font-weight: 400;
+}
+
+/* Card role badge */
+.card-role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.card-role-badge--frontend {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+}
+
+.card-role-badge--fullstack {
+  background-color: #F0FDF4;
+  color: #15803D;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 1200px) {
+  .freelance-content {
+    flex-direction: column;
+  }
+
+  .divider-vertical {
+    display: none;
+  }
+
+  .content-left {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .content-right {
+    padding-left: 0;
+  }
+
+  .main-image-container {
+    height: 380px;
+  }
+
+  .projects-grid {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .freelance-header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 16px 20px;
+    margin-top: 20px;
+    gap: 16px;
+  }
+
+  .header-left {
+    width: 100%;
+  }
+
+  .header-right {
+    flex-basis: 100%;
+    padding-left: 0;
+  }
+
+  .project-title {
+    font-size: 28px;
+  }
+
+  .freelance-content {
+    padding: 0 20px;
+  }
+
+  .other-projects {
+    padding: 36px 20px 32px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .projects-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .info-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

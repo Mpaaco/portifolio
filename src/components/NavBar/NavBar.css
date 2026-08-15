@@ -10,13 +10,23 @@
 }
 
 /* Nome / Logo */
+.navbar-logo-link {
+  text-decoration: none;
+}
+
 .navbar-logo {
   font-family: var(--font-family-base, 'Inter', sans-serif);
   font-weight: var(--font-weight-regular, 400);
   font-size: var(--font-size-nav, 21px);
   color: var(--color-text, #000000);
   line-height: normal;
+  transition: opacity 0.2s ease;
 }
+
+.navbar-logo-link:hover .navbar-logo {
+  opacity: 0.65;
+}
+
 
 /* Grupo de ações (social + menu) */
 .navbar-actions {
@@ -25,16 +35,20 @@
   gap: 24px;
 }
 
-/* Ícones */
-.navbar-social {
-  width: 61px;
-  height: 21px;
+.navbar-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.navbar-menu {
-  width: 49px;
-  height: 7px;
+/* Ícones */
+.navbar-social {
+  font-size: 22px;
+  display: block;
+  line-height: 1;
 }
+
+/* .navbar-menu removed — use HamburgerMenu component instead */
 
 /* ── Tablet ─────────────────────────────── */
 @media (max-width: 1023px) {
@@ -50,11 +64,8 @@
   }
 
   .navbar-social {
-    width: 46px;
-    height: 16px;
+    font-size: 18px;
   }
 
-  .navbar-menu {
-    width: 36px;
-  }
+  /* .navbar-menu mobile rule removed */
 }
