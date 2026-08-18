@@ -4,6 +4,7 @@ import MainContent from './components/MainContent/MainContent'
 import Footer from './components/Footer/Footer'
 import Freelance from './components/Freelance/Freelance'
 import About from './components/About/About'
+import Publicacoes from './components/Publicacoes/Publicacoes'
 import './styles/variables.css'
 import './App.css'
 
@@ -24,6 +25,13 @@ function App() {
               <NavBar />
               <Freelance />
               <Footer variant="freelance" />
+            </>
+          } />
+          <Route path="/publicacoes" element={
+            <>
+              <NavBar />
+              <Publicacoes />
+              <Footer />
             </>
           } />
           <Route path="/about" element={
