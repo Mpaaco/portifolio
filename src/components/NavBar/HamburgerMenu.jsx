@@ -7,7 +7,6 @@ const navLinks = [
   { label: 'HOME', href: '/', isRoute: true },
   { label: 'SOBRE MIM', href: '/about', isRoute: true },
   { label: 'FREELANCES', href: '/freelance', isRoute: true },
-  { label: 'PUBLICAÇÕES', href: '/publicacoes', isRoute: true },
   { label: 'CONTATO', href: '#contato', isContact: true },
 ]
 

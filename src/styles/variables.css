@@ -10,10 +10,6 @@
   --color-indicator-border: #ffffff;
   --color-indicator-active: #ffffff;
   --color-indicator-hover: rgba(255, 255, 255, 0.5);
-  --pub-border-soft: #ececec;
-  --pub-border-card: #d5d5d5;
-  --pub-text-muted: #717174;
-  --pub-text-strong: #18181b;
 
   /* Typography */
   --font-family-base: 'Inter', sans-serif;
