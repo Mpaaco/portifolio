@@ -2,9 +2,7 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "env": {
-    "VITE_API_URL": "@api_url"
-  },
+  "env": {},
   "routes": [
     {
       "src": "/api/(.*)",
