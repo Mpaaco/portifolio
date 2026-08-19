@@ -1,0 +1,67 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Nome / Logo */
+.navbar-logo-link {
+  text-decoration: none;
+}
+
+.navbar-logo {
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  font-weight: var(--font-weight-regular, 400);
+  font-size: var(--font-size-nav, 21px);
+  color: var(--color-text, #000000);
+  line-height: normal;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-logo-link:hover .navbar-logo {
+  opacity: 0.65;
+}
+
+
+/* Grupo de ações (social + menu) */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Ícones */
+.navbar-social {
+  font-size: 22px;
+  display: block;
+  line-height: 1;
+}
+
+/* .navbar-menu removed — use HamburgerMenu component instead */
+
+/* ── Tablet ─────────────────────────────── */
+@media (max-width: 1023px) {
+  .navbar-logo {
+    font-size: 18px;
+  }
+}
+
+/* ── Mobile ─────────────────────────────── */
+@media (max-width: 767px) {
+  .navbar-logo {
+    font-size: 16px;
+  }
+
+  .navbar-social {
+    font-size: 18px;
+  }
+
+  /* .navbar-menu mobile rule removed */
+}

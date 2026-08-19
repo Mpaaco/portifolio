@@ -1,0 +1,270 @@
+/* =========================================
+   PostFormModal — criar/editar publicação
+   Frame Figma: "Modal_post_admin" (2119:7)
+   ========================================= */
+
+.post-form-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: post-form-fade 0.2s ease-out;
+}
+
+.post-form-modal {
+  width: min(720px, 100%);
+  max-height: min(90vh, 900px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: var(--color-bg, #ffffff);
+  font-family: var(--font-family-base, 'Inter', sans-serif);
+  animation: post-form-rise 0.24s ease-out;
+}
+
+.post-form-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 24px 0;
+}
+
+.post-form-modal__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: var(--font-weight-regular, 400);
+  color: var(--color-text, #000000);
+}
+
+.post-form-modal__close {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.post-form-modal__close-line {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text, #000000);
+  transform: rotate(45deg);
+}
+
+.post-form-modal__close-line--cross {
+  transform: rotate(-45deg);
+}
+
+.post-form-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+}
+
+.post-form-modal__field,
+.post-form-modal__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.post-form-modal__label {
+  font-size: 14px;
+  color: var(--pub-text-strong, #18181b);
+}
+
+.post-form-modal__input,
+.post-form-modal__textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 14px;
+  font: inherit;
+  color: var(--color-text, #000000);
+  background-color: #ffffff;
+}
+
+.post-form-modal__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.post-form-modal__input--error {
+  border-color: #b42318;
+}
+
+.post-form-modal__input:focus-visible,
+.post-form-modal__textarea:focus-visible {
+  outline: 2px solid #4141e5;
+  outline-offset: 2px;
+}
+
+.post-form-modal__error {
+  margin: 0;
+  font-size: 13px;
+  color: #b42318;
+}
+
+.post-form-modal__image-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-form-modal__image-add .post-form-modal__input {
+  flex: 1 1 220px;
+}
+
+.post-form-modal__images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-form-modal__image-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--pub-border-soft, #ececec);
+  border-radius: 12px;
+}
+
+.post-form-modal__thumb {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.post-form-modal__image-index {
+  flex: 1;
+  font-size: 14px;
+  color: var(--pub-text-muted, #717174);
+}
+
+.post-form-modal__image-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.post-form-modal__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--color-text, #000000);
+}
+
+.post-form-modal__checkbox input {
+  width: 18px;
+  height: 18px;
+}
+
+.post-form-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.post-form-modal__btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.post-form-modal__btn--primary {
+  background-color: var(--color-text, #000000);
+  color: #ffffff;
+}
+
+.post-form-modal__btn--secondary {
+  border-color: var(--pub-border-card, #d5d5d5);
+  background-color: #ffffff;
+}
+
+.post-form-modal__btn--ghost {
+  border-color: var(--pub-border-card, #d5d5d5);
+  background-color: transparent;
+}
+
+.post-form-modal__icon-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--pub-border-card, #d5d5d5);
+  border-radius: 8px;
+  background-color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.post-form-modal__icon-btn--danger {
+  color: #b42318;
+}
+
+.post-form-modal__icon-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.post-form-modal__close:focus-visible,
+.post-form-modal__btn:focus-visible,
+.post-form-modal__icon-btn:focus-visible,
+.post-form-modal__checkbox input:focus-visible {
+  outline: 2px solid #4141e5;
+  outline-offset: 2px;
+}
+
+@keyframes post-form-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes post-form-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  .post-form-overlay {
+    padding: 12px;
+  }
+
+  .post-form-modal__header,
+  .post-form-modal__form {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .post-form-modal__footer {
+    flex-direction: column-reverse;
+  }
+
+  .post-form-modal__footer .post-form-modal__btn {
+    width: 100%;
+  }
+}

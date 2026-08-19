@@ -1,23 +1,14 @@
 /* =========================================
-   Publicações — fonte única de dados
+   Publicações — dados padrão (seed)
    =========================================
 
-   COMO ADICIONAR UMA NOVA PUBLICAÇÃO
-   1. Copie um objeto do array `posts` abaixo e cole no topo da lista
-      (a ordem do array é a ordem exibida na página).
-   2. Ajuste os campos:
-      - id          : identificador único (string), usado como key do React.
-      - title       : texto curto exibido no card em destaque e no topo do modal.
-      - description : texto completo da publicação (aceita quebras de linha \n).
-      - images      : lista de imagens do post, na ordem em que aparecem.
-                      A primeira é a imagem principal do card e do modal.
-                      Coloque os arquivos em `public/assets/publicacoes/`
-                      e referencie por `/assets/publicacoes/arquivo.png`.
-      - coverImage  : imagem usada no card da seção "Destaques"
-                      (opcional — sem ela, usa a primeira de `images`).
-      - linkedinUrl : URL da publicação no LinkedIn (botão "Link do post").
-      - featured    : true para aparecer na seção "Destaques".
-   3. Salve — nenhuma outra alteração é necessária.
+   Persistência (ordem de leitura):
+   1. localStorage do navegador (edições via dashboard)
+   2. public/data/posts.json (dados publicados no deploy)
+   3. Este arquivo (seed/fallback)
+
+   Para publicar alterações para todos os visitantes:
+   exporte JSON no dashboard e substitua public/data/posts.json antes do deploy.
 */
 
 /** Perfil exibido no cabeçalho de cada post e no modal. */
@@ -85,4 +76,4 @@ export const posts = [
   },
 ]
 
-export const featuredPosts = posts.filter((post) => post.featured)
+export const defaultFeaturedPosts = posts.filter((post) => post.featured)
