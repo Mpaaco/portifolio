@@ -13,10 +13,11 @@
 .freelance-header {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   padding: 0 33px;
   margin-top: 40px;
   height: 80px;
-  gap: 24px;
+  gap: 145px;
 }
 
 .header-left {
@@ -30,7 +31,6 @@
   flex: 1;
   display: flex;
   align-items: center;
-  padding-left: 32px;
   overflow: hidden;
 }
 
@@ -211,6 +211,7 @@
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
+  max-width: 89px;
   font-weight: 500;
   letter-spacing: 0.03em;
 }

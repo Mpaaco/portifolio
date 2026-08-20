@@ -49,7 +49,7 @@ function Freelance() {
       type: 'DashBoard',
       role: 'Full-stack',
       roleType: 'fullstack',
-      url: 'https://gentilvoa.com.br',
+      url: 'https://www.linkedin.com/feed/update/urn:li:activity:7441698720448012289/',
     },
     {
       id: 3,
@@ -64,7 +64,7 @@ function Freelance() {
       type: 'LandingPage',
       role: 'Front-end',
       roleType: 'frontend',
-      url: 'https://coeso.com.br',
+      url: 'https://coeso.adm.br/',
     },
   ]
 

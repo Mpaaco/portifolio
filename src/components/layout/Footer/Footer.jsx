@@ -83,7 +83,7 @@ function Footer({ variant }) {
         >
           Contato
         </button>
-        <p className="footer-subtitle">Engenheiro de Software</p>
+        <p className="footer-subtitle">Desenvolvedor Fullstack</p>
         <p className="footer-timestamp">BR . SP . {time}</p>
       </footer>
 
