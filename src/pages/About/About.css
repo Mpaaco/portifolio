@@ -8,23 +8,22 @@
   flex-direction: column;
   background-color: #ffffff;
   font-family: 'Inter', sans-serif;
-  overflow: hidden; /* Evita que conteúdo vaze e cause scroll */
 }
 
 .about-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 40px 57px 0;
+  padding: 40px 57px 32px;
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
 }
 
 /* ── Topo: Bio ──────────────────────────── */
+
 .about-top {
   flex-shrink: 0;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .about-bio {
@@ -51,19 +50,61 @@
   line-height: 1.6;
 }
 
-/* ── Área Interativa (Abas) ─────────────── */
-.about-interactive {
-  flex: 1;
+/* ── Resumo Visual ──────────────────────── */
+
+.about-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+  background-color: #E5E7EB; /* gap color */
+}
+
+.summary-block {
+  background-color: #FAFAFA;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
-  min-height: 0;
+  gap: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.summary-block:hover {
+  background-color: #F4F4F5;
+}
+
+.summary-block__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #18181B;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.summary-block__description {
+  font-size: 13px;
+  font-weight: 400;
+  color: #52525B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Área Interativa (Abas) ─────────────── */
+
+.about-interactive {
+  display: flex;
+  flex-direction: column;
 }
 
 .about-tabs-nav {
   display: flex;
-  gap: 16px;
+  gap: 4px;
   border-bottom: 1px solid #E5E7EB;
-  padding-bottom: 16px;
+  padding-bottom: 0;
   margin-bottom: 24px;
   flex-shrink: 0;
 }
@@ -71,48 +112,40 @@
 .tab-btn {
   background: none;
   border: none;
+  border-bottom: 2px solid transparent;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: #71717A;
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 10px 16px;
+  border-radius: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  margin-bottom: -1px; /* Overlap com a borda do nav */
+  white-space: nowrap;
 }
 
 .tab-btn:hover {
   color: #18181B;
-  background-color: #F4F4F5;
 }
 
 .tab-btn--active {
-  background-color: #18181B;
-  color: #FFFFFF;
+  color: #18181B;
+  border-bottom-color: #18181B;
+  font-weight: 600;
 }
 
-.tab-btn--active:hover {
-  background-color: #27272A;
-  color: #FFFFFF;
+.tab-btn:focus-visible {
+  outline: 2px solid #18181B;
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 /* ── Conteúdo da Aba ────────────────────── */
-.about-tab-content-wrapper {
-  flex: 1;
-  overflow-y: auto; /* Permite scroll apenas dentro da caixa de conteúdo se necessário */
-  padding-right: 12px; /* Espaço para o scrollbar */
-}
 
-/* Scrollbar customizada para a caixa de abas */
-.about-tab-content-wrapper::-webkit-scrollbar {
-  width: 6px;
-}
-.about-tab-content-wrapper::-webkit-scrollbar-track {
-  background: transparent;
-}
-.about-tab-content-wrapper::-webkit-scrollbar-thumb {
-  background-color: #D4D4D8;
-  border-radius: 10px;
+.about-tab-content-wrapper {
+  padding-right: 4px;
+  min-height: 120px;
 }
 
 /* Animações de Fade */
@@ -126,84 +159,121 @@
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeOut {
   from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 0; transform: translateY(-4px); }
 }
 
-/* ── Pills / Textos das Abas ────────────── */
+/* Reduzir movimento — acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .tab-fade-in,
+  .tab-fade-out {
+    animation: none;
+  }
+
+  .pill,
+  .summary-block,
+  .tab-btn {
+    transition: none;
+  }
+}
+
+/* ── Descrição textual das abas ─────────── */
+
+.tab-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #3F3F46;
+  line-height: 1.65;
+  margin: 0 0 20px;
+  max-width: 680px;
+}
+
+/* ── Grupos de tecnologias ──────────────── */
+
+.tech-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.tech-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-group__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #71717A;
+}
+
+/* ── Pills ──────────────────────────────── */
+
 .pills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   padding-bottom: 20px;
+}
+
+.pills-container--compact {
+  padding-bottom: 0;
 }
 
 .pill {
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 30px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   background-color: #F4F4F5;
   color: #18181B;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: background-color 0.15s ease;
   cursor: default;
 }
 
 .pill:hover {
-  transform: translateY(-2px);
-  background-color: #e5e5e6;
+  background-color: #E4E4E7;
 }
 
-.pill--engineering { background-color: #EFF6FF; color: #1D4ED8; }
-.pill--engineering:hover { background-color: #DBEAFE; }
+/* ── Responsive ─────────────────────────── */
 
-.pill--data { background-color: #F0FDF4; color: #15803D; }
-.pill--data:hover { background-color: #DCFCE7; }
-
-.tab-text {
-  font-size: 18px;
-  font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1.6;
-  margin: 0;
-  padding-bottom: 20px;
-}
-
-/* Responsive Design */
 @media (max-width: 1024px) {
   .about-content {
     padding: 32px 33px 0;
   }
-  
+
   .about-bio {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .bio-title {
     width: 100%;
   }
 
   .about-tabs-nav {
-    overflow-x: auto; /* Permite deslizar os botões horizontalmente no celular */
-    padding-bottom: 12px;
-    margin-bottom: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
 
-  .tab-btn {
-    white-space: nowrap; /* Impede que os botões quebrem linha */
+  .about-tabs-nav::-webkit-scrollbar {
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
   .about-content {
-    padding: 24px 20px 0;
+    padding: 24px 20px 24px;
   }
 
   .bio-title {
@@ -214,12 +284,11 @@
     font-size: 16px;
   }
 
-  .tab-text {
-    font-size: 16px;
+  .about-summary {
+    grid-template-columns: 1fr;
   }
 
-  .pill {
-    padding: 6px 14px;
-    font-size: 13px;
+  .tab-description {
+    font-size: 15px;
   }
 }
